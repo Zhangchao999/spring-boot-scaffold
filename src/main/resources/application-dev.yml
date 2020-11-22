@@ -1,0 +1,10 @@
+logging:
+  level:
+    cn:
+      geoary:
+        controller: debug
+        service: debug
+        mapper: debug
+    org:
+      springframework:
+        security: error
