@@ -2,9 +2,25 @@ logging:
   level:
     cn:
       geoary:
-        controller: debug
-        service: debug
-        mapper: debug
+        fastspringboot:
+          controller: debug
+          service: debug
+          mapper: debug
     org:
       springframework:
         security: error
+spring:
+  thymeleaf:
+    # 关闭缓存
+    cache: false
+    # 调整页面路径
+    prefix: classpath:/templates/view/
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/fsb?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=true
+    username: root
+    password: '123456'
+    driver-class-name: com.mysql.cj.jdbc.Driver
+# 此为mybatis配置文件的引入
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml

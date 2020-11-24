@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.geoary.fastspringboot.mapper.FSBMapper">
+
+    <!--  查询 by id -->
+    <select id="queryById" parameterType="Integer" resultType="HashMap">
+        select id, name, DATE_FORMAT(gmt_create,'%Y-%m-%d %H:%i:%s') as gmt_create,  DATE_FORMAT(gmt_modified,'%Y-%m-%d %H:%i:%s') as gmt_modified from t_fsb where id = #{id} and status  = '1'
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="queryByAll" resultType="HashMap">
+        select id, name, DATE_FORMAT(gmt_create,'%Y-%m-%d %H:%i:%s') as gmt_create,  DATE_FORMAT(gmt_modified,'%Y-%m-%d %H:%i:%s') as gmt_modified from t_fsb where status = '1'
+    </select>
+
+    <!-- 添加 -->
+    <insert id="insert" parameterType="HashMap">
+        insert into t_fsb(
+        name,
+        status,
+        gmt_create,
+        gmt_modified
+        )value(
+        #{name},
+        #{status},
+        sysdate(),
+        sysdate()
+        )
+    </insert>
+
+    <!-- 更新 -->
+    <update id="update" parameterType="HashMap">
+        update t_fsb
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="status != null and status != ''">
+                status = #{status},
+            </if>
+            gmt_modified = sysdate(),
+        </set>
+        where id = #{id}
+    </update>
+
+</mapper>

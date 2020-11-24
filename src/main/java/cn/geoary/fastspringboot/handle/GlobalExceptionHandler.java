@@ -41,7 +41,8 @@ public class GlobalExceptionHandler {
 
     /**
      * 功能描述:
-     * 〈异常 handle〉
+     * 〈异常 handle
+     *   exception 是所有异常类的父类，即可以捕获除了 自定义异常 外的所有异常〉
      *
      * @param exception 1
      * @return : cn.geoary.fastspringboot.entity.boot.ExResult
