@@ -20,4 +20,9 @@ public class ControllerConstant {
      *  controller serviceflag 服务返回 fail
      */
     public static final boolean RESULT_SERVICEFLAG_FAIL = false;
+
+    /**
+     *  controller code 服务抛出异常
+     */
+    public static final String RESULT_CODE_5001 = "5001";
 }
