@@ -36,13 +36,13 @@ public class GlobalExceptionHandler {
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
     public ExResult handleTypeNullPointException(BusinessErrorException exception) {
         logger.error("自定义异常，{}", exception.getMsg());
-        return new ExResult(exception.getCode(), exception.getMsg());
+        return new ExResult(exception.getCode(), "异常信息：" + exception.getMsg());
     }
 
     /**
      * 功能描述:
      * 〈异常 handle
-     *   exception 是所有异常类的父类，即可以捕获除了 自定义异常 外的所有异常〉
+     * exception 是所有异常类的父类，即可以捕获除了 自定义异常 外的所有异常〉
      *
      * @param exception 1
      * @return : cn.geoary.fastspringboot.entity.boot.ExResult
@@ -53,6 +53,6 @@ public class GlobalExceptionHandler {
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
     public ExResult handleTypeException(Exception exception) {
         logger.error("Exception异常，{}", exception.getMessage());
-        return new ExResult(ControllerConstant.RESULT_CODE_5001, exception.getMessage());
+        return new ExResult(ControllerConstant.RESULT_CODE_5001, "异常信息：" + exception.getMessage());
     }
 }
