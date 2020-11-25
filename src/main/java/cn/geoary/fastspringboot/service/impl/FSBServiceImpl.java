@@ -13,7 +13,7 @@ import java.util.List;
 
 @Slf4j
 @Service
-@Transactional(rollbackForClassName = "RuntimeException")
+@Transactional(rollbackFor = {RuntimeException.class})
 public class FSBServiceImpl implements FSBService {
 
     @Resource
