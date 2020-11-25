@@ -47,4 +47,15 @@ public interface FSBService {
      * @date : 2020/11/24 21:58
      */
     HashMap update(HashMap paramMap);
+
+    /**
+     * 功能描述:
+     * 〈测试回滚〉
+     *
+     * @param paramMap 1
+     * @return : java.util.HashMap
+     * @author : zhangc
+     * @date : 2020/11/25 21:10
+     */
+    HashMap rollbackTest(HashMap paramMap);
 }
