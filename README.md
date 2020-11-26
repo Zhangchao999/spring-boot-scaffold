@@ -20,3 +20,8 @@ spring boot 脚手架
 ![生成原型](https://github.com/Zhangchao999/spring-boot-scaffold/raw/main/src/main/resources/githubimg/ideaConfigScaffold.png)  
 `骨架参数可以从maven仓库中获取`  
 ![生成原型](https://github.com/Zhangchao999/spring-boot-scaffold/raw/main/src/main/resources/githubimg/localRepoXml.png)
+
+
+### aop
+官方文档提出优从高到底的优先级分配是 `@Around`, `@Before`, `@After`, `@AfterReturning`, `@AfterThrowing`  
+但是，由于Spring的AspectJAfterAdvice中的实现方式，在`@AfterReturning`或`@AfterThrowing`通知方法之后，都会有效地调用`@After`通知方法

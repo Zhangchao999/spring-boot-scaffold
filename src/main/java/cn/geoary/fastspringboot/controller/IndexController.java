@@ -20,8 +20,8 @@ public class IndexController extends BaseController {
 
     @RequestMapping("/index")
     public BaseResult index(String str) {
-        log.info("请求参数是：{}", str);
-        return setSuccess("参数是：" + str);
+        log.info("index请求参数是：{}", str);
+        return setSuccess("index参数是：" + str);
     }
 
     @RequestMapping("/exception")

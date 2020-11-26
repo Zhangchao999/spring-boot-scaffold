@@ -3,9 +3,11 @@ logging:
     cn:
       geoary:
         fastspringboot:
+          # error、warn、info、debug
           controller: debug
           service: debug
           mapper: debug
+          handle: error
     org:
       springframework:
         security: error
