@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>主页</title>
+    <script th:replace="common/headPC::static"></script>
+</head>
+<body>
+<div th:if="${session.loginflag}">
+    当前用户：
+    <span th:text="${session.username}"></span>
+    <a th:href="@{/logout}">退出</a>
+</div>
+<h3>
+    追和柳恽 <br/>
+    唐代：李贺<br/>
+    汀洲白蘋草，柳恽乘马归。<br/>
+    江头樝树香，岸上蝴蝶飞。<br/>
+    酒杯箬叶露，玉轸蜀桐虚。<br/>
+    朱楼通水陌，沙暖一双鱼。
+</h3>
+</body>
+</html>

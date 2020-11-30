@@ -24,4 +24,16 @@ spring boot 脚手架
 
 ### aop
 官方文档提出优从高到底的优先级分配是 `@Around`, `@Before`, `@After`, `@AfterReturning`, `@AfterThrowing`  
-但是，由于Spring的AspectJAfterAdvice中的实现方式，在`@AfterReturning`或`@AfterThrowing`通知方法之后，都会有效地调用`@After`通知方法
+但是，由于Spring的AspectJAfterAdvice中的实现方式，在`@AfterReturning`或`@AfterThrowing`通知方法之后，都会有效地调用`@After`通知方法  
+aop 不像传统的面向对象一样，通过继承的方式串行执行，而是通过代理类去增强功能。  
+`aop`的应用：  
+1. 记录日志  
+2. 监控方法运行时间  
+3. 权限控制  
+4. 缓存管理  
+5. 事务管理  
+### 监听器、过滤器与拦截器
+监听器：监听服务状态（例如：监听当前在线人数（HttpSessionListener））  
+过滤器：对web资源进行拦截，处理后在交给下一个过滤器或servlet处理  
+拦截器：针对Action的处理，即拦截对控制层的请求  
+

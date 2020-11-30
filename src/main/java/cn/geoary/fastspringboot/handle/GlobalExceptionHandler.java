@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import java.lang.reflect.UndeclaredThrowableException;
+
 /**
  * 功能描述:
  * 〈全局异常捕获〉
@@ -52,7 +54,16 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
     public ExResult handleTypeException(Exception exception) {
-        logger.error("Exception异常，{}", exception.getMessage());
-        return new ExResult(ControllerConstant.RESULT_CODE_5001, "异常信息：" + exception.getMessage());
+        String msg = "";
+        if(exception instanceof UndeclaredThrowableException){
+            Throwable targetEx = ((UndeclaredThrowableException) exception).getUndeclaredThrowable();
+            if (targetEx != null){
+                msg = targetEx.getMessage();
+            }
+        }else {
+            msg = exception.getMessage();
+        }
+        logger.error("Exception异常，{}", msg);
+        return new ExResult(ControllerConstant.RESULT_CODE_5001, "异常信息：" + msg);
     }
 }

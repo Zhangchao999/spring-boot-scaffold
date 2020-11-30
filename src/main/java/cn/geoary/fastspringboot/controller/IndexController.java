@@ -1,12 +1,11 @@
 package cn.geoary.fastspringboot.controller;
 
-import cn.geoary.fastspringboot.constant.BusinessMsgEnum;
 import cn.geoary.fastspringboot.entity.boot.BaseResult;
-import cn.geoary.fastspringboot.exception.BusinessErrorException;
 import cn.geoary.fastspringboot.service.FSBService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -19,9 +18,15 @@ public class IndexController extends BaseController {
     private FSBService fsbService;
 
     @RequestMapping("/index")
-    public BaseResult index(String str) {
-        log.info("index请求参数是：{}", str);
-        return setSuccess("index参数是：" + str);
+    public BaseResult index(String str, String str2) {
+        log.info("index请求参数1是：{}", str);
+        log.info("index请求参数2是：{}", str2);
+        return setSuccess("index参数是：" + str+"  "+str2);
+    }
+
+    @RequestMapping("/indexHome")
+    public ModelAndView indexHome(){
+        return new ModelAndView("index/indexHome.html");
     }
 
     @RequestMapping("/exception")
